@@ -4,3 +4,4 @@ Django==4.2.2
 sqlparse==0.4.4
 typing_extensions==4.6.3
 waitress==2.1.2
+whitenoise==6.4.0

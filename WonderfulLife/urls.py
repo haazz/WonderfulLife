@@ -21,8 +21,13 @@ from WonderfulLife import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('single_pages.urls')),
     path('meditation/', include('meditation.urls')),
-    # path('timer/', include('timer.urls')),
+    path('community/', include('community.urls')),
+    path('markdownx/', include('markdownx.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('', include('single_pages.urls')),
+    path('timer/', include('timer.urls')),
 
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

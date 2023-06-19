@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def timer_page(request):
+    return render(request, 'timer/timer_page.html')

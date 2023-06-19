@@ -17,11 +17,15 @@ class Category(models.Model):
 
 
 class YoutubePost(models.Model):
-    link = models.CharField(max_length=200)
+    title = models.CharField(max_length=50)
+    link = models.TextField()
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
-        return f'[{self.pk}]'
-
+        return f'[{self.pk}]{self.title} - {self.category}'
     def get_youtube_url(self):
         return self.link
+
+    def get_thumbnail_url(self):
+        link_split = self.link.split('/')
+        return "https://img.youtube.com/vi/" + link_split[-1] + "/0.jpg"
